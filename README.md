@@ -40,11 +40,11 @@
 
 ![](./assets/images/work-day-scheduler-screenshot.png)
 
-Here's a quick screenshot of the code quiz page.
+Here's a quick screenshot of the word day scheduler page.
 
-Under the hood of this webpage is my JavaScript coded quiz. This displays some of my abilities with JavaScript. The user is asked 10 questions for obtaining a highscore. You are timed, however, so you cannot take too long. Also, for every question answered incorrectly not only will there be no points assessed but additional time will be deducted.
+Under the hood of this webpage is my JavaScript code using Third-Party APIs like jQuery and Moment.js. This displays some of my abilities with JavaScript. You may enter your tasks at anytime slot, but don't forget to save! The save button just to the left of each task field will save only that task, so if you change another field without saving, don't expect another tasks save button to save those other tasks. The data persists in your localStorage, so if you leave and come back it will still be there.
 
-This was a challenge as the whole site had to be written from the ground up. there are no code snippets used from others. Challanges I faced on this project was the use of Java to dynamically create the HTML for display.
+This was a challenge as the third-party apps were new concepts, and the CSS was provided. Sometimes going through the existing code to figure out how you are suppose to use existing declarations is tough. I suppose I now understand the limitations of libraries and frameworks because you think about how you can shape your program according to what is provided rather than working from the ground up (which could take way too long depending on the size of the program) Challanges I faced on this project was the use of Java to dynamically create the HTML for display, how to assign saved tasks to localStorage, and how to retrieve them.
 
 These are the learned tools in JavaSCript that I used to accomplish the this project:
  - Variables
