@@ -2,53 +2,111 @@
 
 let today = moment();
 let hourStart = moment().hour(9);
-let tasks = [];
+let tasks = [
+        {
+            id: 0,
+            info: ''
+        },
+        {
+            id: 1,
+            info: ''
+        },
+        {
+            id: 2,
+            info: ''
+        },
+        {
+            id: 3,
+            info: ''
+        },
+        {
+            id: 4,
+            info: ''
+        },
+        {
+            id: 5,
+            info: ''
+        },
+        {
+            id: 6,
+            info: ''
+        },
+        {
+            id: 7,
+            info: ''
+        },
+        {
+            id: 8,
+            info: ''
+        }
+    ];
 
-$("#currentDay").text(today.format("dddd, MMMM Do"));
+// save tasks
+const saveTasksToStorage = () => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+}
 
 // color-code blocks to indicate past, present, or future
 
-const auditTask = (newTask) => {
+const auditTask = (newTaskEl) => {
 
     if (moment().isBefore(hourStart, 'hour')) {
-        newTask.addClass("future");
+        newTaskEl.addClass("future");
     } else if (moment().isAfter(hourStart, 'hour')) {
-        newTask.addClass("past");
+        newTaskEl.addClass("past");
     } else {
-        newTask.addClass("present");
+        newTaskEl.addClass("present");
     }
-    return newTask;
+    return newTaskEl;
 }
 
-// create time blocks for standard business hours
-
+// create a time block
 const createHour = (hour) => {
-    let newRow = $("<div>")
+
+    // creates row wrapper for the columns
+    let newRowEl = $("<div>")
         .addClass("row");
 
     // creates hour column
-    let newHour = $("<div>")
+    let newHourEl = $("<div>")
         .addClass("hour col-1 pt-3")
         .text(hour);
 
-    // click into timeblock to enter event or edit it
-    let newTask = $("<textarea>")
+    // clickable timeblock for entering or editing event
+    let newTaskEl = $("<textarea>")
         .addClass("col-10")
         .attr("data-id", i);
 
     // creates save button with icon from fontawesome
-    let newSave = $("<button>")
-        .addClass("saveBtn col-1")
-        .attr("data-id", i)
-        .html("<i class='fas fa-save'></i>");
+    let newSaveEl = $("<button>")
+        .addClass("saveBtn col-1 fas fa-save")
+        .attr("data-id", i);
 
-    auditTask(newTask);
+    // checks newTask element
+    auditTask(newTaskEl);
 
-    newRow.append(newHour).append(newTask).append(newSave);
+    newRowEl.append(newHourEl).append(newTaskEl).append(newSaveEl);
     
-    $(".container").append(newRow);
+    $(".container").append(newRowEl);
 }
 
+// click save button to store in tasks array
+const saveTask = (event) => {
+
+    let dataId = parseInt(event.target.getAttribute("data-id"));
+    let taskInfo = $(`textarea[data-id='${dataId}']`).val();
+
+    // checks exising task index and rewrites with any new info
+    if (tasks[dataId].id === dataId) {
+        tasks[dataId].info = taskInfo;
+    }
+
+    // run fuction to save the tasks to localStorage
+    saveTasksToStorage();
+
+};
+
+// generates the interactive web page content
 for (i=0; i<9; ++i) {
     if (i===0) {
         createHour(hourStart.format("hA"));
@@ -57,21 +115,10 @@ for (i=0; i<9; ++i) {
     }
 }
 
-// click save button to store in localStorage
+// displays current day
+$("#currentDay").text(today.format("dddd, MMMM Do"));
 
-const saveTask = (event) => {
-
-    let dataId = event.target.getAttribute("data-id");
-    let taskInfo = $(`textarea[data-id='${dataId}']`).val();
-
-    let tempTask = {
-        id: dataId,
-        info: taskInfo
-    };
-
-    tasks.push(tempTask);
-};
-
+// listens for save click
 $(".container").on("click", "button", saveTask);
 
 // refresh shows persistent data
