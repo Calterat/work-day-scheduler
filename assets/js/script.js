@@ -6,6 +6,20 @@ let hourStart = moment().hour(9);
 
 $("#currentDay").text(today.format("dddd, MMMM Do"));
 
+// color-code blocks to indicate past, present, or future
+
+const auditTask = (newTask) => {
+
+    if (moment().isBefore(hourStart, 'hour')) {
+        newTask.addClass("future");
+    } else if (moment().isAfter(hourStart, 'hour')) {
+        newTask.addClass("past");
+    } else {
+        newTask.addClass("present");
+    }
+    return newTask;
+}
+
 // create time blocks for standard business hours
 
 const createHour = (hour) => {
@@ -22,6 +36,8 @@ const createHour = (hour) => {
     let newSave = $("<button>")
         .addClass("saveBtn col-1")
 
+    auditTask(newTask);
+
     newRow.append(newHour).append(newTask).append(newSave);
     
     $(".container").append(newRow);
@@ -34,8 +50,6 @@ for (i=0; i<9; ++i) {
         createHour(hourStart.add(1,'h').format("hA"));
     }
 }
-
-// color-code blocks to indicate past, present, or future
 
 // click into timeblock to enter event or edit it
 
