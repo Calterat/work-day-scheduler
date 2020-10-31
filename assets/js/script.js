@@ -31,10 +31,12 @@ const createHour = (hour) => {
         .text(hour);
 
     let newTask = $("<textarea>")
-        .addClass("col-10");
+        .addClass("col-10")
+        .attr("data-id", i);
 
     let newSave = $("<button>")
         .addClass("saveBtn col-1")
+        .attr("data-id", i);
 
     auditTask(newTask);
 
