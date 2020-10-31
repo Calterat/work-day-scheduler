@@ -2,44 +2,29 @@
 
 let today = moment();
 let hourStart = moment().hour(9);
-let tasks = [
-        {
-            id: 0,
-            info: ''
-        },
-        {
-            id: 1,
-            info: ''
-        },
-        {
-            id: 2,
-            info: ''
-        },
-        {
-            id: 3,
-            info: ''
-        },
-        {
-            id: 4,
-            info: ''
-        },
-        {
-            id: 5,
-            info: ''
-        },
-        {
-            id: 6,
-            info: ''
-        },
-        {
-            id: 7,
-            info: ''
-        },
-        {
-            id: 8,
-            info: ''
+let tasks = [];
+
+const loadData = () => {
+
+    // pull from localStorage
+    tasks = JSON.parse(localStorage.getItem("tasks"));
+
+    // validate data from localStorage
+    if (!tasks) {
+        tasks = [{id: 0,info: ''},{id: 1,info: ''},{id: 2,info: ''},{id: 3,info: ''},
+                {id: 4,info: ''},{id: 5,info: ''},{id: 6,info: ''},{id: 7,info: ''},
+                {id: 8,info: ''}];
+    }
+
+    // generates the interactive web page content
+    for (i=0; i<9; ++i) {
+        if (i===0) {
+            createHour(hourStart.format("hA"));
+        } else {
+            createHour(hourStart.add(1,'h').format("hA"));
         }
-    ];
+    }
+}
 
 // save tasks
 const saveTasksToStorage = () => {
@@ -75,7 +60,9 @@ const createHour = (hour) => {
     // clickable timeblock for entering or editing event
     let newTaskEl = $("<textarea>")
         .addClass("col-10")
-        .attr("data-id", i);
+        .attr("data-id", i)
+        // this loads save info if anything was stored, otherwise it is just blank
+        .text(tasks[i].info);
 
     // creates save button with icon from fontawesome
     let newSaveEl = $("<button>")
@@ -106,14 +93,8 @@ const saveTask = (event) => {
 
 };
 
-// generates the interactive web page content
-for (i=0; i<9; ++i) {
-    if (i===0) {
-        createHour(hourStart.format("hA"));
-    } else {
-        createHour(hourStart.add(1,'h').format("hA"));
-    }
-}
+// load any saved data and generate interactive content
+loadData();
 
 // displays current day
 $("#currentDay").text(today.format("dddd, MMMM Do"));
