@@ -5,15 +5,15 @@
     <img src="./assets/images/julian-img.jpeg" alt="Logo" width="80" height="100">
   </a>
 
-  <h1 align="center">My Quiz with Coding Questions</h1>
+  <h1 align="center">My Work Day Scheduler</h1>
 
   <p align="center">
-    Julian Gillis' Code Quiz
+    Julian Gillis' Work Day Schedule
     <br />
-    <a href="https://github.com/Calterat/code-quiz"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/Calterat/work-day-scheduler"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://calterat.github.io/code-quiz/">View Demo</a>
+    <a href="https://calterat.github.io/work-day-scheduler">View Demo</a>
   </p>
 </p>
 <br/>
@@ -38,7 +38,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![](./assets/images/code-quiz-screenshot.png)
+![](./assets/images/work-day-scheduler-screenshot.png)
 
 Here's a quick screenshot of the code quiz page.
 
@@ -54,6 +54,7 @@ These are the learned tools in JavaSCript that I used to accomplish the this pro
  - if/else conditional statements
  - functions
  - The DOM and other Web APIs
+ - Third-Party APIs like jQeary and Moment.js
 
 
 
@@ -63,6 +64,11 @@ These are the learned tools in JavaSCript that I used to accomplish the this pro
 * [HTML]()
 * [CSS]()
 * [JavaScript]()
+* [jQuery]()
+* [Bootstrap]()
+* [FontAwesome]()
+* [Moment.js]()
+* [Google Fonts]()
 * [VSCODE]()
 * [GIT]()
 
@@ -86,7 +92,7 @@ These are the tools you'll need if locally editing the source code.
 
 1. Clone the repo (type in Bash or Terminal)
 ```
-git clone git@github.com:Calterat/code-quiz.git
+git clone git@github.com:Calterat/work-day-scheduler.git
 ```
 
 
@@ -94,7 +100,7 @@ git clone git@github.com:Calterat/code-quiz.git
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-[My Portfolio](https://calterat.github.io/code-quiz/)
+[My Portfolio](https://calterat.github.io/work-day-scheduler)
 
 Please press the 'Generate Button' and use it to produce a random password using the character types you selected.
 
@@ -103,7 +109,7 @@ Please press the 'Generate Button' and use it to produce a random password using
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/Calterat/code-quiz/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/Calterat/work-day-scheduler/issues) for a list of proposed features (and known issues).
 
 
 
@@ -132,7 +138,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Julian Gillis -  Calterat@gmail.com
 
-Project Link: [https://github.com/Calterat/code-quiz](https://github.com/Calterat/code-quiz)
+Project Link: [https://github.com/Calterat/work-day-scheduler](https://github.com/Calterat/work-day-scheduler)
 
 
 <!-- Additional Notes -->
@@ -157,12 +163,12 @@ Thank you for taking the time to check out and use my random password generator!
 <!-- MARKDOWN LINKS & IMAGES -->
 <!--
 
-[GitHub Repository]: https://github.com/Calterat/code-quiz
-[Password Generator URL]: https://calterat.github.io/code-quiz/
-[issues-url]: https://github.com/Calterat/code-quiz/issues
-[license-url]: https://github.com/Calterat/code-quiz/blob/master/LICENSE.txt
+[GitHub Repository]: https://github.com/Calterat/work-day-scheduler
+[Password Generator URL]: https://calterat.github.io/work-day-scheduler
+[issues-url]: https://github.com/Calterat/work-day-scheduler/issues
+[license-url]: https://github.com/Calterat/work-day-scheduler/blob/master/LICENSE.txt
 [linkedin-url]: https://www.linkedin.com/in/julian-gillis-5ba18b20/
 ![personal-image](./assets/images/julian-img.jpeg)
-![product-screenshot](.assets/images/code-quiz-screenshot.png)
+![product-screenshot](.assets/images/work-day-scheduler-screenshot.png)
 
 -->
