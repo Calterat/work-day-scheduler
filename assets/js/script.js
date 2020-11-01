@@ -2,16 +2,16 @@
 
 let today = moment();
 let hourStart = moment().hour(9);
-let tasks = [];
+let hourlyTasks = [];
 
 const loadData = () => {
 
     // pull from localStorage
-    tasks = JSON.parse(localStorage.getItem("tasks"));
+    hourlyTasks = JSON.parse(localStorage.getItem("hourlyTasks"));
 
     // validate data from localStorage
-    if (!tasks) {
-        tasks = [{id: 0,info: ''},{id: 1,info: ''},{id: 2,info: ''},{id: 3,info: ''},
+    if (!hourlyTasks) {
+        hourlyTasks = [{id: 0,info: ''},{id: 1,info: ''},{id: 2,info: ''},{id: 3,info: ''},
                 {id: 4,info: ''},{id: 5,info: ''},{id: 6,info: ''},{id: 7,info: ''},
                 {id: 8,info: ''}];
     }
@@ -28,7 +28,7 @@ const loadData = () => {
 
 // save tasks
 const saveTasksToStorage = () => {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
+    localStorage.setItem("hourlyTasks", JSON.stringify(hourlyTasks));
 }
 
 // color-code blocks to indicate past, present, or future
@@ -62,7 +62,7 @@ const createHour = (hour) => {
         .addClass("col-10")
         .attr("data-id", i)
         // this loads save info if anything was stored, otherwise it is just blank
-        .text(tasks[i].info);
+        .text(hourlyTasks[i].info);
 
     // creates save button with icon from fontawesome
     let newSaveEl = $("<button>")
@@ -84,8 +84,8 @@ const saveTask = (event) => {
     let taskInfo = $(`textarea[data-id='${dataId}']`).val();
 
     // checks exising task index and rewrites with any new info
-    if (tasks[dataId].id === dataId) {
-        tasks[dataId].info = taskInfo;
+    if (hourlyTasks[dataId].id === dataId) {
+        hourlyTasks[dataId].info = taskInfo;
     }
 
     // run fuction to save the tasks to localStorage
