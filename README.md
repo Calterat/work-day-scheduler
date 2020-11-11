@@ -100,9 +100,9 @@ git clone git@github.com:Calterat/work-day-scheduler.git
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-[My Portfolio](https://calterat.github.io/work-day-scheduler)
+[My Work-Day-Scheduler](https://calterat.github.io/work-day-scheduler)
 
-Please press the 'Generate Button' and use it to produce a random password using the character types you selected.
+Every hour will color changed based on the real time. Input your task and make sure you click the save button if you want it to stay on the page if you leave.
 
 
 
